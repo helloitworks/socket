@@ -25,14 +25,22 @@
 		223F949818E2E696002B16C8 /* host_serv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 223F949618E2E696002B16C8 /* host_serv.cpp */; };
 		223F94A118E3F6CD002B16C8 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 223F94A018E3F6CD002B16C8 /* main.cpp */; };
 		223F94A318E3F6CD002B16C8 /* kqueue.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 223F94A218E3F6CD002B16C8 /* kqueue.1 */; };
-		223F94B218E530F5002B16C8 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 223F94B118E530F5002B16C8 /* main.cpp */; };
-		223F94B418E530F5002B16C8 /* KqueueWebClient.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 223F94B318E530F5002B16C8 /* KqueueWebClient.1 */; };
-		223F94B818E55678002B16C8 /* host_serv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 223F949618E2E696002B16C8 /* host_serv.cpp */; };
-		223F94B918E55678002B16C8 /* error.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 223F948018E068BB002B16C8 /* error.cpp */; };
-		223F94BA18E55678002B16C8 /* getaddrinfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 223F948218E068BB002B16C8 /* getaddrinfo.cpp */; };
-		223F94BB18E55678002B16C8 /* gethostbyname.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 223F948418E068BB002B16C8 /* gethostbyname.cpp */; };
-		223F94BC18E55678002B16C8 /* http.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 223F948618E068BB002B16C8 /* http.cpp */; };
-		223F94BD18E55678002B16C8 /* wrapsock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 223F948818E068BB002B16C8 /* wrapsock.cpp */; };
+		223F94C518E5AB1A002B16C8 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 223F94C418E5AB1A002B16C8 /* main.cpp */; };
+		223F94C718E5AB1A002B16C8 /* kqueue_multiple_web_client.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 223F94C618E5AB1A002B16C8 /* kqueue_multiple_web_client.1 */; };
+		223F94D218E5AB43002B16C8 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 223F94D118E5AB43002B16C8 /* main.cpp */; };
+		223F94D418E5AB43002B16C8 /* kqueue_web_client.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 223F94D318E5AB43002B16C8 /* kqueue_web_client.1 */; };
+		223F94D818E5AB78002B16C8 /* host_serv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 223F949618E2E696002B16C8 /* host_serv.cpp */; };
+		223F94D918E5AB78002B16C8 /* error.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 223F948018E068BB002B16C8 /* error.cpp */; };
+		223F94DA18E5AB78002B16C8 /* getaddrinfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 223F948218E068BB002B16C8 /* getaddrinfo.cpp */; };
+		223F94DB18E5AB78002B16C8 /* gethostbyname.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 223F948418E068BB002B16C8 /* gethostbyname.cpp */; };
+		223F94DC18E5AB78002B16C8 /* http.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 223F948618E068BB002B16C8 /* http.cpp */; };
+		223F94DD18E5AB78002B16C8 /* wrapsock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 223F948818E068BB002B16C8 /* wrapsock.cpp */; };
+		223F94DE18E5AB82002B16C8 /* host_serv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 223F949618E2E696002B16C8 /* host_serv.cpp */; };
+		223F94DF18E5AB82002B16C8 /* error.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 223F948018E068BB002B16C8 /* error.cpp */; };
+		223F94E018E5AB82002B16C8 /* getaddrinfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 223F948218E068BB002B16C8 /* getaddrinfo.cpp */; };
+		223F94E118E5AB82002B16C8 /* gethostbyname.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 223F948418E068BB002B16C8 /* gethostbyname.cpp */; };
+		223F94E218E5AB82002B16C8 /* http.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 223F948618E068BB002B16C8 /* http.cpp */; };
+		223F94E318E5AB82002B16C8 /* wrapsock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 223F948818E068BB002B16C8 /* wrapsock.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -66,13 +74,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
-		223F94AD18E530F5002B16C8 /* CopyFiles */ = {
+		223F94C018E5AB1A002B16C8 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
 			dstSubfolderSpec = 0;
 			files = (
-				223F94B418E530F5002B16C8 /* KqueueWebClient.1 in CopyFiles */,
+				223F94C718E5AB1A002B16C8 /* kqueue_multiple_web_client.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		223F94CD18E5AB43002B16C8 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				223F94D418E5AB43002B16C8 /* kqueue_web_client.1 in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
@@ -101,9 +119,12 @@
 		223F949E18E3F6CD002B16C8 /* kqueue */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = kqueue; sourceTree = BUILT_PRODUCTS_DIR; };
 		223F94A018E3F6CD002B16C8 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		223F94A218E3F6CD002B16C8 /* kqueue.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = kqueue.1; sourceTree = "<group>"; };
-		223F94AF18E530F5002B16C8 /* KqueueWebClient */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = KqueueWebClient; sourceTree = BUILT_PRODUCTS_DIR; };
-		223F94B118E530F5002B16C8 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		223F94B318E530F5002B16C8 /* KqueueWebClient.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = KqueueWebClient.1; sourceTree = "<group>"; };
+		223F94C218E5AB1A002B16C8 /* kqueue_multiple_web_client */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = kqueue_multiple_web_client; sourceTree = BUILT_PRODUCTS_DIR; };
+		223F94C418E5AB1A002B16C8 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		223F94C618E5AB1A002B16C8 /* kqueue_multiple_web_client.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = kqueue_multiple_web_client.1; sourceTree = "<group>"; };
+		223F94CF18E5AB43002B16C8 /* kqueue_web_client */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = kqueue_web_client; sourceTree = BUILT_PRODUCTS_DIR; };
+		223F94D118E5AB43002B16C8 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		223F94D318E5AB43002B16C8 /* kqueue_web_client.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = kqueue_web_client.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +149,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		223F94AC18E530F5002B16C8 /* Frameworks */ = {
+		223F94BF18E5AB1A002B16C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		223F94CC18E5AB43002B16C8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -145,7 +173,8 @@
 				223F944418E05017002B16C8 /* socket */,
 				223F945A18E05587002B16C8 /* select */,
 				223F949F18E3F6CD002B16C8 /* kqueue */,
-				223F94B018E530F5002B16C8 /* KqueueWebClient */,
+				223F94C318E5AB1A002B16C8 /* kqueue_multiple_web_client */,
+				223F94D018E5AB43002B16C8 /* kqueue_web_client */,
 				223F944318E05017002B16C8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -156,7 +185,8 @@
 				223F944218E05017002B16C8 /* socket */,
 				223F945918E05586002B16C8 /* select */,
 				223F949E18E3F6CD002B16C8 /* kqueue */,
-				223F94AF18E530F5002B16C8 /* KqueueWebClient */,
+				223F94C218E5AB1A002B16C8 /* kqueue_multiple_web_client */,
+				223F94CF18E5AB43002B16C8 /* kqueue_web_client */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -208,13 +238,22 @@
 			path = kqueue;
 			sourceTree = "<group>";
 		};
-		223F94B018E530F5002B16C8 /* KqueueWebClient */ = {
+		223F94C318E5AB1A002B16C8 /* kqueue_multiple_web_client */ = {
 			isa = PBXGroup;
 			children = (
-				223F94B118E530F5002B16C8 /* main.cpp */,
-				223F94B318E530F5002B16C8 /* KqueueWebClient.1 */,
+				223F94C418E5AB1A002B16C8 /* main.cpp */,
+				223F94C618E5AB1A002B16C8 /* kqueue_multiple_web_client.1 */,
 			);
-			path = KqueueWebClient;
+			path = kqueue_multiple_web_client;
+			sourceTree = "<group>";
+		};
+		223F94D018E5AB43002B16C8 /* kqueue_web_client */ = {
+			isa = PBXGroup;
+			children = (
+				223F94D118E5AB43002B16C8 /* main.cpp */,
+				223F94D318E5AB43002B16C8 /* kqueue_web_client.1 */,
+			);
+			path = kqueue_web_client;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,21 +310,38 @@
 			productReference = 223F949E18E3F6CD002B16C8 /* kqueue */;
 			productType = "com.apple.product-type.tool";
 		};
-		223F94AE18E530F5002B16C8 /* KqueueWebClient */ = {
+		223F94C118E5AB1A002B16C8 /* kqueue_multiple_web_client */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 223F94B518E530F5002B16C8 /* Build configuration list for PBXNativeTarget "KqueueWebClient" */;
+			buildConfigurationList = 223F94C818E5AB1A002B16C8 /* Build configuration list for PBXNativeTarget "kqueue_multiple_web_client" */;
 			buildPhases = (
-				223F94AB18E530F5002B16C8 /* Sources */,
-				223F94AC18E530F5002B16C8 /* Frameworks */,
-				223F94AD18E530F5002B16C8 /* CopyFiles */,
+				223F94BE18E5AB1A002B16C8 /* Sources */,
+				223F94BF18E5AB1A002B16C8 /* Frameworks */,
+				223F94C018E5AB1A002B16C8 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = KqueueWebClient;
-			productName = KqueueWebClient;
-			productReference = 223F94AF18E530F5002B16C8 /* KqueueWebClient */;
+			name = kqueue_multiple_web_client;
+			productName = kqueue_multiple_web_client;
+			productReference = 223F94C218E5AB1A002B16C8 /* kqueue_multiple_web_client */;
+			productType = "com.apple.product-type.tool";
+		};
+		223F94CE18E5AB43002B16C8 /* kqueue_web_client */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 223F94D518E5AB43002B16C8 /* Build configuration list for PBXNativeTarget "kqueue_web_client" */;
+			buildPhases = (
+				223F94CB18E5AB43002B16C8 /* Sources */,
+				223F94CC18E5AB43002B16C8 /* Frameworks */,
+				223F94CD18E5AB43002B16C8 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = kqueue_web_client;
+			productName = kqueue_web_client;
+			productReference = 223F94CF18E5AB43002B16C8 /* kqueue_web_client */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -312,7 +368,8 @@
 				223F944118E05017002B16C8 /* socket */,
 				223F945818E05586002B16C8 /* select */,
 				223F949D18E3F6CD002B16C8 /* kqueue */,
-				223F94AE18E530F5002B16C8 /* KqueueWebClient */,
+				223F94C118E5AB1A002B16C8 /* kqueue_multiple_web_client */,
+				223F94CE18E5AB43002B16C8 /* kqueue_web_client */,
 			);
 		};
 /* End PBXProject section */
@@ -354,17 +411,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		223F94AB18E530F5002B16C8 /* Sources */ = {
+		223F94BE18E5AB1A002B16C8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				223F94B818E55678002B16C8 /* host_serv.cpp in Sources */,
-				223F94B918E55678002B16C8 /* error.cpp in Sources */,
-				223F94BA18E55678002B16C8 /* getaddrinfo.cpp in Sources */,
-				223F94BB18E55678002B16C8 /* gethostbyname.cpp in Sources */,
-				223F94BC18E55678002B16C8 /* http.cpp in Sources */,
-				223F94BD18E55678002B16C8 /* wrapsock.cpp in Sources */,
-				223F94B218E530F5002B16C8 /* main.cpp in Sources */,
+				223F94DE18E5AB82002B16C8 /* host_serv.cpp in Sources */,
+				223F94DF18E5AB82002B16C8 /* error.cpp in Sources */,
+				223F94E018E5AB82002B16C8 /* getaddrinfo.cpp in Sources */,
+				223F94E118E5AB82002B16C8 /* gethostbyname.cpp in Sources */,
+				223F94E218E5AB82002B16C8 /* http.cpp in Sources */,
+				223F94E318E5AB82002B16C8 /* wrapsock.cpp in Sources */,
+				223F94C518E5AB1A002B16C8 /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		223F94CB18E5AB43002B16C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				223F94D818E5AB78002B16C8 /* host_serv.cpp in Sources */,
+				223F94D918E5AB78002B16C8 /* error.cpp in Sources */,
+				223F94DA18E5AB78002B16C8 /* getaddrinfo.cpp in Sources */,
+				223F94DB18E5AB78002B16C8 /* gethostbyname.cpp in Sources */,
+				223F94DC18E5AB78002B16C8 /* http.cpp in Sources */,
+				223F94DD18E5AB78002B16C8 /* wrapsock.cpp in Sources */,
+				223F94D218E5AB43002B16C8 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,7 +562,7 @@
 			};
 			name = Release;
 		};
-		223F94B618E530F5002B16C8 /* Debug */ = {
+		223F94C918E5AB1A002B16C8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -502,7 +573,25 @@
 			};
 			name = Debug;
 		};
-		223F94B718E530F5002B16C8 /* Release */ = {
+		223F94CA18E5AB1A002B16C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		223F94D618E5AB43002B16C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		223F94D718E5AB43002B16C8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -545,11 +634,19 @@
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		223F94B518E530F5002B16C8 /* Build configuration list for PBXNativeTarget "KqueueWebClient" */ = {
+		223F94C818E5AB1A002B16C8 /* Build configuration list for PBXNativeTarget "kqueue_multiple_web_client" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				223F94B618E530F5002B16C8 /* Debug */,
-				223F94B718E530F5002B16C8 /* Release */,
+				223F94C918E5AB1A002B16C8 /* Debug */,
+				223F94CA18E5AB1A002B16C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		223F94D518E5AB43002B16C8 /* Build configuration list for PBXNativeTarget "kqueue_web_client" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				223F94D618E5AB43002B16C8 /* Debug */,
+				223F94D718E5AB43002B16C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

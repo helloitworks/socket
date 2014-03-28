@@ -14,6 +14,16 @@
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
+		<key>kqueue_multiple_web_client.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>kqueue_web_client.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 		<key>select.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -43,6 +53,16 @@
 			<true/>
 		</dict>
 		<key>223F94AE18E530F5002B16C8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>223F94C118E5AB1A002B16C8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>223F94CE18E5AB43002B16C8</key>
 		<dict>
 			<key>primary</key>
 			<true/>

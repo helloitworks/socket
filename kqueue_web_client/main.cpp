@@ -34,7 +34,7 @@ int main(int argc, char **argv) {
     bool hasClosed = false;
     int kq = kqueue();
     
-    //regist
+    //register
     int ret = 0;
     struct kevent changes[1];
     EV_SET(&changes[0], sockfd, EVFILT_WRITE, EV_ADD, 0, 0, NULL);
@@ -42,7 +42,7 @@ int main(int argc, char **argv) {
     
     EV_SET(&changes[0], sockfd, EVFILT_READ, EV_ADD, 0, 0, NULL);
     ret = kevent(kq, changes, 1, NULL, 0, NULL);
-
+    
     
 	while(true)
     {
