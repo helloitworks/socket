@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "223F944118E05017002B16C8"
-               BuildableName = "socket"
-               BlueprintName = "socket"
+               BlueprintIdentifier = "223F94F018E956FE002B16C8"
+               BuildableName = "select_multiple_web_client"
+               BlueprintName = "select_multiple_web_client"
                ReferencedContainer = "container:socket.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -57,6 +57,12 @@
             ReferencedContainer = "container:socket.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <CommandLineArguments>
+         <CommandLineArgument
+            argument = "3 dl.xunlei.com / / product.htm"
+            isEnabled = "YES">
+         </CommandLineArgument>
+      </CommandLineArguments>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -69,9 +75,9 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "223F944118E05017002B16C8"
-            BuildableName = "socket"
-            BlueprintName = "socket"
+            BlueprintIdentifier = "223F94F018E956FE002B16C8"
+            BuildableName = "select_multiple_web_client"
+            BlueprintName = "select_multiple_web_client"
             ReferencedContainer = "container:socket.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

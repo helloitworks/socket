@@ -15,7 +15,7 @@ int main(int argc, char **argv) {
     
 	int sockfd;
 	struct sockaddr_in servaddr;
-	char httpRequest[BUFSIZE], buf[BUFSIZE];
+	char http_request[BUFSIZE], buf[BUFSIZE];
     
     //socket
 	sockfd = Socket(AF_INET, SOCK_STREAM, 0);
@@ -80,8 +80,8 @@ int main(int argc, char **argv) {
         if(FD_ISSET(sockfd, &wset))
         {
             //send
-            BuildHttpRequest(HOST, httpRequest, sizeof(httpRequest)/sizeof(int));
-            if (send(sockfd,httpRequest,strlen(httpRequest), 0) < 0)
+            build_http_request(HOST, http_request, sizeof(http_request)/sizeof(int));
+            if (send(sockfd,http_request,strlen(http_request), 0) < 0)
             {
                 err_sys("send");
             }

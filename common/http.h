@@ -10,6 +10,6 @@
 #define socket_http_h
 
 #include "common.h"
-void BuildHttpRequest(const char *host, char *httpRequest, int n);
+void build_http_request(const char *host, char *http_request, int n);
 
 #endif

@@ -9,12 +9,14 @@
 #ifndef socket_common_h
 #define socket_common_h
 
+
+
 #include <stdio.h> /* stderr, stdout */
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
-#include <sys/types.h>
 
+#include <sys/types.h>
 #include <sys/socket.h>  /* basic socket definitions */
 #include <netdb.h>          /* hostent struct, gethostbyname() */
 #include <arpa/inet.h>      /* inet_ntoa() to format IP address */
@@ -24,13 +26,17 @@
 #include <fcntl.h>
 #include <sys/event.h>
 
+
+
 #include "error.h"
 #include "http.h"
 #include "gethostbyname.h"
 #include "getaddrinfo.h"
 #include "wrapsock.h"
 #include "host_serv.h"
-
+#include "wrapunix.h"
+#include <algorithm> /*min max*/
+using namespace std;
 //#include "wrapsock.h"
 
 /* Miscellaneous constants */

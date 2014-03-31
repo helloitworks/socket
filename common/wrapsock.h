@@ -55,3 +55,7 @@ int      Socket(int, int, int);
 void     Socketpair(int, int, int, int *);
 void     Writen(int, void *, size_t);
 #endif
+
+
+int
+Tcp_connect(const char *host, const char *serv);

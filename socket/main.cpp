@@ -48,7 +48,7 @@ int main(int argc, char **argv) {
     }
     
     //send
-    BuildHttpRequest(HOST, httpRequest, sizeof(httpRequest)/sizeof(int));
+    build_http_request(HOST, httpRequest, sizeof(httpRequest)/sizeof(int));
     if (send(sockfd,httpRequest,strlen(httpRequest), 0) < 0)
     {
         err_sys("send");

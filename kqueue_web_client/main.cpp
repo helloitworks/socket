@@ -13,11 +13,12 @@
 const int MAX_EVENT_COUNT = 5000;
 const int MAX_RECV_BUFF = 65535;
 
+
 int main(int argc, char **argv) {
     
 	int sockfd;
 	//struct sockaddr_in servaddr;
-	char httpRequest[BUFSIZE], buf[BUFSIZE];
+	char http_request[BUFSIZE], buf[BUFSIZE];
     
     //addrinfo
     struct addrinfo *ai = host_serv(HOST, SERV, 0, SOCK_STREAM);
@@ -68,8 +69,8 @@ int main(int argc, char **argv) {
                 if (event.filter == EVFILT_WRITE)
                 {
                     //send
-                    BuildHttpRequest(HOST, httpRequest, sizeof(httpRequest)/sizeof(int));
-                    if (send(sockfd,httpRequest,strlen(httpRequest), 0) < 0)
+                    build_http_request(HOST, http_request, sizeof(http_request)/sizeof(int));
+                    if (send(sockfd,http_request,strlen(http_request), 0) < 0)
                     {
                         err_sys("send");
                     }

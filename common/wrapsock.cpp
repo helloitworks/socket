@@ -304,3 +304,125 @@ Socketpair(int family, int type, int protocol, int *fd)
 	if ( (n = socketpair(family, type, protocol, fd)) < 0)
 		err_sys("socketpair error");
 }
+
+
+
+
+ssize_t                     /* Read "n" bytes from a descriptor. */
+readn(int fd, void *vptr, size_t n)
+{
+    size_t  nleft;
+    ssize_t nread;
+    char    *ptr;
+    
+    ptr = (char*)vptr;
+    nleft = n;
+    while (nleft > 0) {
+        if ( (nread = read(fd, ptr, nleft)) < 0) {
+            if (errno == EINTR)
+                nread = 0;      /* and call read() again */
+            else
+                return(-1);
+        } else if (nread == 0)
+            break;              /* EOF */
+        
+        nleft -= nread;
+        ptr   += nread;
+    }
+    return(n - nleft);      /* return >= 0 */
+}
+/* end readn */
+
+ssize_t
+Readn(int fd, void *ptr, size_t nbytes)
+{
+    ssize_t     n;
+    
+    if ( (n = readn(fd, ptr, nbytes)) < 0)
+        err_sys("readn error");
+    return(n);
+}
+
+
+
+ssize_t						/* Write "n" bytes to a descriptor. */
+writen(int fd, const void *vptr, size_t n)
+{
+	size_t		nleft;
+	ssize_t		nwritten;
+	const char	*ptr;
+    
+	ptr = (const char*)vptr;
+	nleft = n;
+	while (nleft > 0) {
+		if ( (nwritten = write(fd, ptr, nleft)) <= 0) {
+			if (nwritten < 0 && errno == EINTR)
+				nwritten = 0;		/* and call write() again */
+			else
+				return(-1);			/* error */
+		}
+        
+		nleft -= nwritten;
+		ptr   += nwritten;
+	}
+	return(n);
+}
+/* end writen */
+
+void
+Writen(int fd, void *ptr, size_t nbytes)
+{
+	if (writen(fd, ptr, nbytes) != nbytes)
+		err_sys("writen error");
+}
+
+
+
+int
+tcp_connect(const char *host, const char *serv)
+{
+	int				sockfd, n;
+	struct addrinfo	hints, *res, *ressave;
+    
+	bzero(&hints, sizeof(struct addrinfo));
+	hints.ai_family = AF_UNSPEC;
+	hints.ai_socktype = SOCK_STREAM;
+    
+	if ( (n = getaddrinfo(host, serv, &hints, &res)) != 0)
+		err_quit("tcp_connect error for %s, %s: %s",
+				 host, serv, gai_strerror(n));
+	ressave = res;
+    
+	do {
+		sockfd = socket(res->ai_family, res->ai_socktype, res->ai_protocol);
+		if (sockfd < 0)
+			continue;	/* ignore this one */
+        
+		if (connect(sockfd, res->ai_addr, res->ai_addrlen) == 0)
+			break;		/* success */
+        
+		Close(sockfd);	/* ignore this one */
+	} while ( (res = res->ai_next) != NULL);
+    
+	if (res == NULL)	/* errno set from final connect() */
+		err_sys("tcp_connect error for %s, %s", host, serv);
+    
+	freeaddrinfo(ressave);
+    
+	return(sockfd);
+}
+/* end tcp_connect */
+
+/*
+ * We place the wrapper function here, not in wraplib.c, because some
+ * XTI programs need to include wraplib.c, and it also defines
+ * a Tcp_connect() function.
+ */
+
+int
+Tcp_connect(const char *host, const char *serv)
+{
+	return(tcp_connect(host, serv));
+}
+
+
