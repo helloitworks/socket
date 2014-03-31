@@ -59,7 +59,7 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "3 www.soso.com / product.htm xl7.9/intro.html"
+            argument = "3 dl.xunlei.com / /xl7.9/intro.html /product.htm "
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

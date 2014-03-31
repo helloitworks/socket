@@ -1,13 +1,5 @@
-//
-//  main.cpp
-//  socket
-//
-//  Created by shenyixin on 14-3-24.
-//  Copyright (c) 2014年 shenyixin. All rights reserved.
-//
 #include "common.h"
-#include <sys/types.h>
-#include <sys/socket.h>  /* basic socket definitions */
+
 
 #define MAXFILES    20
 #define SERV        "80"    /* port number or service name */
@@ -41,7 +33,7 @@ home_page(const char *host, const char *fname)
 {
 	int		fd, n;
 	char	line[MAXLINE];
-
+    
 	fd = Tcp_connect(host, SERV);	/* blocking connect() */
     
 	n = snprintf(line, sizeof(line), GET_CMD, fname, host);
@@ -65,8 +57,8 @@ write_get_cmd(struct file *fptr)
 {
     int     n;
     char    line[MAXLINE];
-    
-    n = snprintf(line, sizeof(line), GET_CMD, fptr->f_name, fptr->f_host);
+    memset(line, 0, sizeof(line));
+    n = snprintf(line, sizeof(line), GET_CMD, fptr->f_name,fptr->f_host);
     Writen(fptr->f_fd, line, n);
     printf("wrote %d bytes for %s\n", n, fptr->f_name);
     
@@ -109,20 +101,14 @@ start_connect(struct file *fptr)
 }
 
 
-int main(int argc, char **argv) {
-    
-    int ret_val = 0;
 
-    
-    
+
+int
+main(int argc, char **argv)
+{
 	int		i, fd, n, maxnconn, flags, error, ret;
 	char	buf[MAXLINE];
 	fd_set	rs, ws;
-    
-    
-	int errcode = 0;
-	int errcode_size = sizeof(int);
-	ret_val = getsockopt(fd, SOL_SOCKET, SO_ERROR, &errcode, (socklen_t *)&errcode_size);
     
 	if (argc < 5)
 		err_quit("usage: web <#conns> <hostname> <homepage> <file1> ...");
@@ -145,8 +131,7 @@ int main(int argc, char **argv) {
 	nconn = 0;
     /* end web1 */
     /* include web2 */
-	while (nlefttoread > 0)
-    {
+	while (nlefttoread > 0) {
 		while (nconn < maxnconn && nlefttoconn > 0) {
             /* 4find a file to read */
 			for (i = 0 ; i < nfiles; i++)
@@ -159,7 +144,7 @@ int main(int argc, char **argv) {
 			nlefttoconn--;
 		}
         
-        rs = rset;
+		rs = rset;
 		ws = wset;
 		n = Select(maxfd+1, &rs, &ws, NULL, NULL);
         
@@ -171,8 +156,9 @@ int main(int argc, char **argv) {
 			if (flags & F_CONNECTING &&
 				(FD_ISSET(fd, &rs) || FD_ISSET(fd, &ws))) {
 				n = sizeof(error);
-				if (getsockopt(fd, SOL_SOCKET, SO_ERROR, &error, (socklen_t *)&n) < 0 ||
-					error != 0) {
+                //todo 这里不加socklen_t就编译不通过！
+                ret = getsockopt(fd, SOL_SOCKET, SO_ERROR, &error, (socklen_t *)&n);
+				if ( ret < 0 || error != 0) {
 					err_ret("nonblocking connect failed for %s",
 							file[i].f_name);
 				}
@@ -182,7 +168,7 @@ int main(int argc, char **argv) {
 				write_get_cmd(&file[i]);/* write() the GET command */
                 
 			} else if (flags & F_READING && FD_ISSET(fd, &rs)) {
-                memset(buf, 0, MAXLINE);
+                memset(buf, 0, sizeof(buf));
 				if ( (n = Read(fd, buf, sizeof(buf)-1)) == 0) {
 					printf("end-of-file on %s\n", file[i].f_name);
 					Close(fd);
@@ -192,89 +178,89 @@ int main(int argc, char **argv) {
 					nlefttoread--;
 				} else {
 					printf("read %d bytes from %s\n", n, file[i].f_name);
-                    printf("%s\n", buf);
-
+                    printf("buf = %s\n", buf);
 				}
 			}
 		}
-
-        
-    }
-    /*
-    //todo
-    //struct timespec ts;
-    bool hasSend = false;
-    bool hasClosed = false;
-    int kq = kqueue();
-    
-    //register
-    int ret = 0;
-    struct kevent changes[1];
-    EV_SET(&changes[0], sockfd, EVFILT_WRITE, EV_ADD, 0, 0, NULL);
-    ret = kevent(kq, changes, 1, NULL, 0, NULL);
-    
-    EV_SET(&changes[0], sockfd, EVFILT_READ, EV_ADD, 0, 0, NULL);
-    ret = kevent(kq, changes, 1, NULL, 0, NULL);
-    
-    
-	while(true)
-    {
-        if (hasClosed) {
-            return 0;
-        }
-        struct kevent events[1];
-        
-        ret = kevent(kq, NULL, 0, events, 1, NULL);
-        if (ret < 0)
-        {
-            
-        }
-        else
-        {
-            for (int i = 0; i < ret; i++)
-            {
-                struct kevent event = events[i];
-                
-                int fd = events[i].ident;
-                int avail_bytes = events[i].data;
-                
-                if (event.filter == EVFILT_WRITE)
-                {
-                    //send
-                    build_http_request(HOST, http_request, sizeof(http_request)/sizeof(int));
-                    if (send(sockfd,http_request,strlen(http_request), 0) < 0)
-                    {
-                        err_sys("send");
-                    }
-                    EV_SET(&changes[0], sockfd, EVFILT_WRITE, EV_DELETE, 0, 0, NULL);
-                    ret = kevent(kq, changes, 1, NULL, 0, NULL);
-                    if (ret == -1)
-                    {
-                        perror("kevent()");
-                    }
-                }
-                
-                if (event.filter == EVFILT_READ)
-                {
-                    memset(buf, 0, BUFFSIZE);
-                    int n = read(sockfd, buf, BUFFSIZE-1);
-                    if (n == 0 || n == -1)
-                    {
-                        hasClosed = true;
-                        //close(sockfd);
-                        //kevent(): Bad file descriptor
-                        //EV_SET(&changes[0], sockfd, EVFILT_READ, EV_DELETE, 0, 0, NULL);
-                    }
-                    else
-                    {
-                        printf("%s",buf);
-                    }
-                }
-            }
-        }
-        
-    }*/
-	return 0;
+	}
+	exit(0);
 }
+
+
+
+/*
+ //todo
+ //struct timespec ts;
+ bool hasSend = false;
+ bool hasClosed = false;
+ int kq = kqueue();
+ 
+ //register
+ int ret = 0;
+ struct kevent changes[1];
+ EV_SET(&changes[0], sockfd, EVFILT_WRITE, EV_ADD, 0, 0, NULL);
+ ret = kevent(kq, changes, 1, NULL, 0, NULL);
+ 
+ EV_SET(&changes[0], sockfd, EVFILT_READ, EV_ADD, 0, 0, NULL);
+ ret = kevent(kq, changes, 1, NULL, 0, NULL);
+ 
+ 
+ while(true)
+ {
+ if (hasClosed) {
+ return 0;
+ }
+ struct kevent events[1];
+ 
+ ret = kevent(kq, NULL, 0, events, 1, NULL);
+ if (ret < 0)
+ {
+ 
+ }
+ else
+ {
+ for (int i = 0; i < ret; i++)
+ {
+ struct kevent event = events[i];
+ 
+ int fd = events[i].ident;
+ int avail_bytes = events[i].data;
+ 
+ if (event.filter == EVFILT_WRITE)
+ {
+ //send
+ build_http_request(HOST, http_request, sizeof(http_request)/sizeof(int));
+ if (send(sockfd,http_request,strlen(http_request), 0) < 0)
+ {
+ err_sys("send");
+ }
+ EV_SET(&changes[0], sockfd, EVFILT_WRITE, EV_DELETE, 0, 0, NULL);
+ ret = kevent(kq, changes, 1, NULL, 0, NULL);
+ if (ret == -1)
+ {
+ perror("kevent()");
+ }
+ }
+ 
+ if (event.filter == EVFILT_READ)
+ {
+ memset(buf, 0, BUFFSIZE);
+ int n = read(sockfd, buf, BUFFSIZE-1);
+ if (n == 0 || n == -1)
+ {
+ hasClosed = true;
+ //close(sockfd);
+ //kevent(): Bad file descriptor
+ //EV_SET(&changes[0], sockfd, EVFILT_READ, EV_DELETE, 0, 0, NULL);
+ }
+ else
+ {
+ printf("%s",buf);
+ }
+ }
+ }
+ }
+ 
+ }*/
 
 

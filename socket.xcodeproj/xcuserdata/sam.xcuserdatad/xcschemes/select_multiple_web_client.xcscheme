@@ -32,9 +32,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "223F94C118E5AB1A002B16C8"
-            BuildableName = "kqueue_multiple_web_client"
-            BlueprintName = "kqueue_multiple_web_client"
+            BlueprintIdentifier = "223F94F018E956FE002B16C8"
+            BuildableName = "select_multiple_web_client"
+            BlueprintName = "select_multiple_web_client"
             ReferencedContainer = "container:socket.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -51,15 +51,15 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "223F94C118E5AB1A002B16C8"
-            BuildableName = "kqueue_multiple_web_client"
-            BlueprintName = "kqueue_multiple_web_client"
+            BlueprintIdentifier = "223F94F018E956FE002B16C8"
+            BuildableName = "select_multiple_web_client"
+            BlueprintName = "select_multiple_web_client"
             ReferencedContainer = "container:socket.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "3 dl.xunlei.com / / product.htm"
+            argument = "3 dl.xunlei.com / / /product.htm"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

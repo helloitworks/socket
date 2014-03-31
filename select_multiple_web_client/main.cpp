@@ -57,8 +57,8 @@ write_get_cmd(struct file *fptr)
 {
     int     n;
     char    line[MAXLINE];
-    
-    n = snprintf(line, sizeof(line), GET_CMD, fptr->f_name);
+    memset(line, 0, sizeof(line));
+    n = snprintf(line, sizeof(line), GET_CMD, fptr->f_name,fptr->f_host);
     Writen(fptr->f_fd, line, n);
     printf("wrote %d bytes for %s\n", n, fptr->f_name);
     
@@ -168,7 +168,8 @@ main(int argc, char **argv)
 				write_get_cmd(&file[i]);/* write() the GET command */
                 
 			} else if (flags & F_READING && FD_ISSET(fd, &rs)) {
-				if ( (n = Read(fd, buf, sizeof(buf))) == 0) {
+                memset(buf, 0, sizeof(buf));
+				if ( (n = Read(fd, buf, sizeof(buf)-1)) == 0) {
 					printf("end-of-file on %s\n", file[i].f_name);
 					Close(fd);
 					file[i].f_flags = F_DONE;	/* clears F_READING */
@@ -177,6 +178,7 @@ main(int argc, char **argv)
 					nlefttoread--;
 				} else {
 					printf("read %d bytes from %s\n", n, file[i].f_name);
+                    printf("buf = %s\n", buf);
 				}
 			}
 		}
