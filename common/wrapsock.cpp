@@ -400,8 +400,8 @@ tcp_connect(const char *host, const char *serv)
         
 		if (connect(sockfd, res->ai_addr, res->ai_addrlen) == 0)
 			break;		/* success */
-        
-		Close(sockfd);	/* ignore this one */
+        //todo 改成Close编译不通过
+		close(sockfd);	/* ignore this one */
 	} while ( (res = res->ai_next) != NULL);
     
 	if (res == NULL)	/* errno set from final connect() */

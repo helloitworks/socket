@@ -43,6 +43,10 @@ using namespace std;
 #define MAXLINE     4096    /* max text line length */
 #define BUFFSIZE    8192    /* buffer size for reads and writes */
 
+/* Following could be derived from SOMAXCONN in <sys/socket.h>, but many
+ kernels still #define it as 5, while actually supporting many more */
+#define LISTENQ     1024    /* 2nd argument to listen() */
+
 //int setnonblock(int fd)
 //{
 //    int flags;

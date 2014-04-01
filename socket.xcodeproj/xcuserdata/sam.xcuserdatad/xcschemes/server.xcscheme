@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "223F94C118E5AB1A002B16C8"
-               BuildableName = "kqueue_multiple_web_client"
-               BlueprintName = "kqueue_multiple_web_client"
+               BlueprintIdentifier = "22E5CCFB18EA9911006FA87A"
+               BuildableName = "server"
+               BlueprintName = "server"
                ReferencedContainer = "container:socket.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "223F94C118E5AB1A002B16C8"
-            BuildableName = "kqueue_multiple_web_client"
-            BlueprintName = "kqueue_multiple_web_client"
+            BlueprintIdentifier = "22E5CCFB18EA9911006FA87A"
+            BuildableName = "server"
+            BlueprintName = "server"
             ReferencedContainer = "container:socket.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -51,18 +51,12 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "223F94C118E5AB1A002B16C8"
-            BuildableName = "kqueue_multiple_web_client"
-            BlueprintName = "kqueue_multiple_web_client"
+            BlueprintIdentifier = "22E5CCFB18EA9911006FA87A"
+            BuildableName = "server"
+            BlueprintName = "server"
             ReferencedContainer = "container:socket.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <CommandLineArguments>
-         <CommandLineArgument
-            argument = "3 dl.xunlei.com / /xl7.9/intro.html  /product.htm"
-            isEnabled = "YES">
-         </CommandLineArgument>
-      </CommandLineArguments>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -75,9 +69,9 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "223F94C118E5AB1A002B16C8"
-            BuildableName = "kqueue_multiple_web_client"
-            BlueprintName = "kqueue_multiple_web_client"
+            BlueprintIdentifier = "22E5CCFB18EA9911006FA87A"
+            BuildableName = "server"
+            BlueprintName = "server"
             ReferencedContainer = "container:socket.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

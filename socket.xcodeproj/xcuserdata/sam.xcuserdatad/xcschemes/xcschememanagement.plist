@@ -9,6 +9,21 @@
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
+		<key>client.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>10</integer>
+		</dict>
+		<key>daytime_client.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
+		<key>daytime_server.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
 		<key>kqueue.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -33,6 +48,11 @@
 		<dict>
 			<key>orderHint</key>
 			<integer>6</integer>
+		</dict>
+		<key>server.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
 		</dict>
 		<key>socket.xcscheme</key>
 		<dict>
@@ -73,6 +93,26 @@
 			<true/>
 		</dict>
 		<key>223F94F018E956FE002B16C8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>22E5CCFB18EA9911006FA87A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>22E5CD0F18EA9B85006FA87A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>22E5CD1C18EA9BA3006FA87A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>22E5CD2918EA9BF9006FA87A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

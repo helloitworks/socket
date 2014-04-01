@@ -22,11 +22,14 @@ struct file {
 int     nconn, nfiles, nlefttoconn, nlefttoread, maxfd;
 fd_set  rset, wset;
 
+
 /* function prototypes */
 void    home_page(const char *, const char *);
 void    start_connect(struct file *);
 void    write_get_cmd(struct file *);
 
+
+int kq;
 
 void
 home_page(const char *host, const char *fname)
@@ -64,9 +67,11 @@ write_get_cmd(struct file *fptr)
     
     fptr->f_flags = F_READING;          /* clears F_CONNECTING */
     
-    FD_SET(fptr->f_fd, &rset);          /* will read server's reply */
-    if (fptr->f_fd > maxfd)
-        maxfd = fptr->f_fd;
+    int ret = 0;
+    struct kevent changes[1];
+    EV_SET(&changes[0], fptr->f_fd, EVFILT_WRITE, EV_DELETE, 0, 0, NULL);
+    ret = kevent(kq, changes, 1, NULL, 0, NULL);
+    
 }
 
 
@@ -87,26 +92,50 @@ start_connect(struct file *fptr)
     Fcntl(fd, F_SETFL, flags | O_NONBLOCK);
     
     /* 4Initiate nonblocking connect to the server. */
-    if ( (n = connect(fd, ai->ai_addr, ai->ai_addrlen)) < 0) {
+    if ( (n = connect(fd, ai->ai_addr, ai->ai_addrlen)) < 0)
+    {
         if (errno != EINPROGRESS)
             err_sys("nonblocking connect error");
         fptr->f_flags = F_CONNECTING;
-        FD_SET(fd, &rset);          /* select for reading and writing */
-        FD_SET(fd, &wset);
+        //register
+        int ret = 0;
+        struct kevent changes[1];
+        EV_SET(&changes[0], fd, EVFILT_WRITE, EV_ADD, 0, 0, NULL);
+        ret = kevent(kq, changes, 1, NULL, 0, NULL);
+        if (ret < 0) {
+            err_sys("kevent()");
+        }
+        EV_SET(&changes[0], fd, EVFILT_READ, EV_ADD, 0, 0, NULL);
+        ret = kevent(kq, changes, 1, NULL, 0, NULL);
+        
         if (fd > maxfd)
             maxfd = fd;
         
-    } else if (n >= 0)              /* connect is already done */
+    }
+    else if (n >= 0)              /* connect is already done */
+    {
         write_get_cmd(fptr);    /* write() the GET command */
+    }
 }
 
 
-
+int find_file_index_by_event(struct kevent event)
+{
+    int i ;
+    for (i = 0; i < nfiles; i++) {
+        if (file[i].f_fd == event.ident)
+        {
+            return i;
+        }
+	}
+    return 0;
+    
+}
 
 int
 main(int argc, char **argv)
 {
-	int		i, fd, n, maxnconn, flags, error, ret;
+	int		i, fd, n, maxnconn, flags, error, ret, index;
 	char	buf[MAXLINE];
 	fd_set	rs, ws;
     
@@ -124,8 +153,8 @@ main(int argc, char **argv)
     
 	home_page(argv[2], argv[3]);
     
-	FD_ZERO(&rset);
-	FD_ZERO(&wset);
+    kq = kqueue();
+
 	maxfd = -1;
 	nlefttoread = nlefttoconn = nfiles;
 	nconn = 0;
@@ -144,43 +173,59 @@ main(int argc, char **argv)
 			nlefttoconn--;
 		}
         
-		rs = rset;
-		ws = wset;
-		n = Select(maxfd+1, &rs, &ws, NULL, NULL);
+        struct kevent events[2];
         
-		for (i = 0; i < nfiles; i++) {
-			flags = file[i].f_flags;
+        ret = kevent(kq, NULL, 0, events, nfiles, NULL);
+        
+		for (i = 0; i < ret; i++) {
+
+			//fd = file[i].f_fd;
+            struct kevent event = events[i];
+            //kqueue返回的events list事件是不按照顺序的。所以要根据event找到file index。这一点跟select有很大的不同，因为select是按照顺序的
+            index = find_file_index_by_event(event);
+			flags = file[index].f_flags;
 			if (flags == 0 || flags & F_DONE)
 				continue;
-			fd = file[i].f_fd;
-			if (flags & F_CONNECTING &&
-				(FD_ISSET(fd, &rs) || FD_ISSET(fd, &ws))) {
+            
+            int fd = event.ident;
+            int avail_bytes = event.data;
+            
+            if (flags & F_CONNECTING && event.filter == EVFILT_WRITE)
+            {
 				n = sizeof(error);
                 //todo 这里不加socklen_t就编译不通过！
                 ret = getsockopt(fd, SOL_SOCKET, SO_ERROR, &error, (socklen_t *)&n);
 				if ( ret < 0 || error != 0) {
 					err_ret("nonblocking connect failed for %s",
-							file[i].f_name);
+							file[index].f_name);
 				}
                 /* 4connection established */
-				printf("connection established for %s\n", file[i].f_name);
-				FD_CLR(fd, &wset);		/* no more writeability test */
-				write_get_cmd(&file[i]);/* write() the GET command */
+				printf("connection established for %s\n", file[index].f_name);
+				
+                write_get_cmd(&file[index]);/* write() the GET command */
                 
-			} else if (flags & F_READING && FD_ISSET(fd, &rs)) {
+                
+            }
+            else if (flags & F_READING && event.filter == EVFILT_READ) {
                 memset(buf, 0, sizeof(buf));
 				if ( (n = Read(fd, buf, sizeof(buf)-1)) == 0) {
-					printf("end-of-file on %s\n", file[i].f_name);
+					printf("end-of-file on %s\n", file[index].f_name);
 					Close(fd);
-					file[i].f_flags = F_DONE;	/* clears F_READING */
-					FD_CLR(fd, &rset);
+					file[index].f_flags = F_DONE;	/* clears F_READING */
+                    
+                    struct kevent changes[1];
+                    EV_SET(&changes[0], fd, EVFILT_READ, EV_DELETE, 0, 0, NULL);
+                    ret = kevent(kq, changes, 1, NULL, 0, NULL);
+                    
 					nconn--;
 					nlefttoread--;
 				} else {
-					printf("read %d bytes from %s\n", n, file[i].f_name);
+                    buf[n]= '\0';
+					printf("read %d bytes from %s\n", n, file[index].f_name);
                     printf("buf = %s\n", buf);
 				}
 			}
+            
 		}
 	}
 	exit(0);
