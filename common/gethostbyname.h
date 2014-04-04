@@ -11,6 +11,6 @@
 
 #include "common.h"
 
-bool GetHostByName(const char * host, in_addr *in_addr);
+bool GetHostByName(const char * host, struct in_addr *in_addr);
 void TestGetHostByName();
 #endif /* defined(__socket__gethostbyname__) */

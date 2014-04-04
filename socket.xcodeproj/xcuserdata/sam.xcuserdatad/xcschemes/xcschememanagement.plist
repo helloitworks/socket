@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
+		<key>async_frame.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>12</integer>
+		</dict>
 		<key>client.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -24,6 +29,16 @@
 			<key>orderHint</key>
 			<integer>8</integer>
 		</dict>
+		<key>echo_client.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>13</integer>
+		</dict>
+		<key>echo_server.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>14</integer>
+		</dict>
 		<key>kqueue.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -33,6 +48,11 @@
 		<dict>
 			<key>orderHint</key>
 			<integer>4</integer>
+		</dict>
+		<key>kqueue_multiple_web_client2.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>11</integer>
 		</dict>
 		<key>kqueue_web_client.xcscheme</key>
 		<dict>
@@ -113,6 +133,26 @@
 			<true/>
 		</dict>
 		<key>22E5CD2918EA9BF9006FA87A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>22E5CD3618EACB2C006FA87A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>22E5CD4B18ECF7DB006FA87A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>22E5CD7D18ED9142006FA87A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>22E5CD8A18ED92B5006FA87A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

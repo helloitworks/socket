@@ -15,15 +15,19 @@ Open(const char *pathname, int oflag, mode_t mode);
 void
 Close(int fd);
 
+int
+Fcntl(int fd, int cmd, int arg);
+
+
+pid_t
+Fork(void);
+
 ssize_t
 Read(int fd, void *ptr, size_t nbytes);
 
 
 void
 Write(int fd, void *ptr, size_t nbytes);
-
-int
-Fcntl(int fd, int cmd, int arg);
 
 
 #endif

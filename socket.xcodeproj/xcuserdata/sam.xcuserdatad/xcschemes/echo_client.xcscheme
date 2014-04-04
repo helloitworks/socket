@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "22E5CD1C18EA9BA3006FA87A"
-               BuildableName = "daytime_client"
-               BlueprintName = "daytime_client"
+               BlueprintIdentifier = "22E5CD7D18ED9142006FA87A"
+               BuildableName = "echo_client"
+               BlueprintName = "echo_client"
                ReferencedContainer = "container:socket.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "22E5CD1C18EA9BA3006FA87A"
-            BuildableName = "daytime_client"
-            BlueprintName = "daytime_client"
+            BlueprintIdentifier = "22E5CD7D18ED9142006FA87A"
+            BuildableName = "echo_client"
+            BlueprintName = "echo_client"
             ReferencedContainer = "container:socket.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -51,9 +51,9 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "22E5CD1C18EA9BA3006FA87A"
-            BuildableName = "daytime_client"
-            BlueprintName = "daytime_client"
+            BlueprintIdentifier = "22E5CD7D18ED9142006FA87A"
+            BuildableName = "echo_client"
+            BlueprintName = "echo_client"
             ReferencedContainer = "container:socket.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -75,9 +75,9 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "22E5CD1C18EA9BA3006FA87A"
-            BuildableName = "daytime_client"
-            BlueprintName = "daytime_client"
+            BlueprintIdentifier = "22E5CD7D18ED9142006FA87A"
+            BuildableName = "echo_client"
+            BlueprintName = "echo_client"
             ReferencedContainer = "container:socket.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

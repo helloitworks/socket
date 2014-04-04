@@ -10,7 +10,7 @@
 #define __socket__getaddrinfo__
 
 #include "common.h"
-bool GetAddrInfo(const char * host, sockaddr *sockaddr);
+bool GetAddrInfo(const char * host, struct sockaddr *sockaddr);
 void TestGetAddrInfo();
 
 #endif /* defined(__socket__getaddrinfo__) */

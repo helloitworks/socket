@@ -53,6 +53,17 @@ Fcntl(int fd, int cmd, int arg)
 }
 
 
+pid_t
+Fork(void)
+{
+    pid_t   pid;
+    
+    if ( (pid = fork()) == -1)
+        err_sys("fork error");
+    return(pid);
+}
+
+
 int
 Open(const char *pathname, int oflag, mode_t mode)
 {
@@ -82,3 +93,4 @@ Write(int fd, void *ptr, size_t nbytes)
 	if (write(fd, ptr, nbytes) != nbytes)
 		err_sys("write error");
 }
+

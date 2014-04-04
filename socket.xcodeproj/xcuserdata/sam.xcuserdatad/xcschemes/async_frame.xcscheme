@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "22E5CD1C18EA9BA3006FA87A"
-               BuildableName = "daytime_client"
-               BlueprintName = "daytime_client"
+               BlueprintIdentifier = "22E5CD4B18ECF7DB006FA87A"
+               BuildableName = "async_frame"
+               BlueprintName = "async_frame"
                ReferencedContainer = "container:socket.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "22E5CD1C18EA9BA3006FA87A"
-            BuildableName = "daytime_client"
-            BlueprintName = "daytime_client"
+            BlueprintIdentifier = "22E5CD4B18ECF7DB006FA87A"
+            BuildableName = "async_frame"
+            BlueprintName = "async_frame"
             ReferencedContainer = "container:socket.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -51,18 +51,12 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "22E5CD1C18EA9BA3006FA87A"
-            BuildableName = "daytime_client"
-            BlueprintName = "daytime_client"
+            BlueprintIdentifier = "22E5CD4B18ECF7DB006FA87A"
+            BuildableName = "async_frame"
+            BlueprintName = "async_frame"
             ReferencedContainer = "container:socket.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <CommandLineArguments>
-         <CommandLineArgument
-            argument = "127.0.0.1"
-            isEnabled = "YES">
-         </CommandLineArgument>
-      </CommandLineArguments>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -75,9 +69,9 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "22E5CD1C18EA9BA3006FA87A"
-            BuildableName = "daytime_client"
-            BlueprintName = "daytime_client"
+            BlueprintIdentifier = "22E5CD4B18ECF7DB006FA87A"
+            BuildableName = "async_frame"
+            BlueprintName = "async_frame"
             ReferencedContainer = "container:socket.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "22E5CD1C18EA9BA3006FA87A"
-               BuildableName = "daytime_client"
-               BlueprintName = "daytime_client"
+               BlueprintIdentifier = "22E5CD3618EACB2C006FA87A"
+               BuildableName = "kqueue_multiple_web_client2"
+               BlueprintName = "kqueue_multiple_web_client2"
                ReferencedContainer = "container:socket.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "22E5CD1C18EA9BA3006FA87A"
-            BuildableName = "daytime_client"
-            BlueprintName = "daytime_client"
+            BlueprintIdentifier = "22E5CD3618EACB2C006FA87A"
+            BuildableName = "kqueue_multiple_web_client2"
+            BlueprintName = "kqueue_multiple_web_client2"
             ReferencedContainer = "container:socket.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -51,15 +51,15 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "22E5CD1C18EA9BA3006FA87A"
-            BuildableName = "daytime_client"
-            BlueprintName = "daytime_client"
+            BlueprintIdentifier = "22E5CD3618EACB2C006FA87A"
+            BuildableName = "kqueue_multiple_web_client2"
+            BlueprintName = "kqueue_multiple_web_client2"
             ReferencedContainer = "container:socket.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "127.0.0.1"
+            argument = "3 dl.xunlei.com / /xl7.9/intro.html  /product.htm"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
@@ -75,9 +75,9 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "22E5CD1C18EA9BA3006FA87A"
-            BuildableName = "daytime_client"
-            BlueprintName = "daytime_client"
+            BlueprintIdentifier = "22E5CD3618EACB2C006FA87A"
+            BuildableName = "kqueue_multiple_web_client2"
+            BlueprintName = "kqueue_multiple_web_client2"
             ReferencedContainer = "container:socket.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
